@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
       home: FutureBuilder(
           future: _fbApp,
           builder: (context, snapshot) {
-            if (snapshot.hasError) {
-              return Text("Something went wrong!");
-            } else if (snapshot.hasData) {
-              return MyHomePage(title: 'Flutter Demo Home Page');
-            }
-            return Text("Something went wrong!");
+            // if (snapshot.hasError) {
+            //   return Text("Something went wrong!");
+            // } else if (snapshot.hasData) {
+            //   return MyHomePage(title: 'Flutter Demo Home Page');
+            // }
+            return MyHomePage(title: 'Flutter Demo Home Page');
           }),
     );
   }
@@ -47,7 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: HomeScreen(
-        title: "Home",
+        title: "Yasen",
       ),
     );
   }
