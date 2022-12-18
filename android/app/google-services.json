@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "165864342929",
+    "project_id": "cas-charity",
+    "storage_bucket": "cas-charity.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:165864342929:android:ade4f64c9ee12b9a148630",
+        "android_client_info": {
+          "package_name": "com.example.cas_chromebook"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "165864342929-n7jt43h8c4aopv0771kil73qb00ka9uu.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBbWSjFx-e4PJkBSvBdb4fr95q0xPB4zrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "165864342929-n7jt43h8c4aopv0771kil73qb00ka9uu.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
