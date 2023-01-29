@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "165864342929",
-    "project_id": "cas-charity",
-    "storage_bucket": "cas-charity.appspot.com"
+    "project_number": "887430733553",
+    "project_id": "cas-charity-781fe",
+    "storage_bucket": "cas-charity-781fe.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:165864342929:android:ade4f64c9ee12b9a148630",
+        "mobilesdk_app_id": "1:887430733553:android:be09a20226def16a829350",
         "android_client_info": {
           "package_name": "com.example.cas_chromebook"
         }
       },
       "oauth_client": [
         {
-          "client_id": "165864342929-n7jt43h8c4aopv0771kil73qb00ka9uu.apps.googleusercontent.com",
+          "client_id": "887430733553-9jnb4pdg5n6ejlg4mu4b0e9n07ntada7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBbWSjFx-e4PJkBSvBdb4fr95q0xPB4zrg"
+          "current_key": "AIzaSyAua71_LbeTqxjLM5SA_C5otJMJT_uCk4o"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "165864342929-n7jt43h8c4aopv0771kil73qb00ka9uu.apps.googleusercontent.com",
+              "client_id": "887430733553-9jnb4pdg5n6ejlg4mu4b0e9n07ntada7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

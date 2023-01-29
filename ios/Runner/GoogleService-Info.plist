@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>887430733553-fbnig6h15i6aq81onbcmkikrql94fjmr.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.887430733553-fbnig6h15i6aq81onbcmkikrql94fjmr</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB1WR9dA5M5p5KppJJvKbdtwS2yQDUjLnc</string>
+	<key>GCM_SENDER_ID</key>
+	<string>887430733553</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.casChromebook</string>
+	<key>PROJECT_ID</key>
+	<string>cas-charity-781fe</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cas-charity-781fe.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:887430733553:ios:8c155186b36d9c99829350</string>
+</dict>
+</plist>
