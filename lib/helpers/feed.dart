@@ -4,6 +4,9 @@ import 'package:flutter/material.dart';
 import '../widgets.dart';
 
 class Feed extends StatefulWidget {
+  // Map<String, dynamic> data;
+
+  // Feed({required this.data});
   @override
   _FeedState createState() => _FeedState();
 }
@@ -31,6 +34,7 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin {
           if (!snapshot.hasData) {
             return Center(child: CircularProgressIndicator());
           }
+          //s page view pravim feeda da se scrollva
           return PageView.builder(
             controller: _pageController,
             scrollDirection: Axis.vertical,
@@ -38,10 +42,13 @@ class _FeedState extends State<Feed> with AutomaticKeepAliveClientMixin {
             itemBuilder: (BuildContext context, int index) {
               DocumentSnapshot post = snapshot.data!.docs[index];
               Map<String, dynamic> data = post.data() as Map<String, dynamic>;
+              //round Image e widgeta deto otgovarq za kak izglezda posta (namira se v widgets.dart)
+              //here call the function from feed
               return RoundImage(
                 name: data['name'],
                 info: data['info'],
                 imageUrl: data['postUrl'],
+                heldDate: data['dateHeld'].toDate(),
               );
             },
           );

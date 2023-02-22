@@ -11,6 +11,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../helpers/feed.dart';
+import '../src/dynamic.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({
@@ -33,12 +34,61 @@ List<DateTime?> _rangeDatePickerValueWithDefaultValue = [
 class _HomeScreen extends State<HomeScreen> {
   bool loading = true;
   Uint8List? _file;
+
+  //   @override
+  // void initState() {
+  //   super.initState();
+  //     // DocumentSnapshot post = snapshot.data!.docs[index];
+
+  //   //run code here that should only run once when the widget is first created
+
+  // }
+
+  PageController _pageController = PageController();
   @override
   Widget build(BuildContext context) {
-    // FirestoreService().updateQuizzes("baba");
     return Row(
       children: <Widget>[
-        Expanded(flex: 3, child: Feed()),
+        Expanded(
+            flex: 3,
+            child: Scaffold(
+              floatingActionButton: FloatingActionButton(
+                onPressed: () {
+                  _pageController.jumpToPage(0);
+                  //refresh the feed here
+                },
+                child: Icon(Icons.refresh),
+              ),
+              body: StreamBuilder(
+                stream:
+                    FirebaseFirestore.instance.collection("posts").snapshots(),
+                builder: (BuildContext context,
+                    AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (!snapshot.hasData) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  //s page view pravim feeda da se scrollva
+                  return PageView.builder(
+                    controller: _pageController,
+                    scrollDirection: Axis.vertical,
+                    itemCount: snapshot.data?.docs.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      DocumentSnapshot post = snapshot.data!.docs[index];
+                      Map<String, dynamic> data =
+                          post.data() as Map<String, dynamic>;
+                      //round Image e widgeta deto otgovarq za kak izglezda posta (namira se v widgets.dart)
+                      //here call the function from feed
+                      return RoundImage(
+                        name: data['name'],
+                        info: data['info'],
+                        imageUrl: data['postUrl'],
+                        heldDate: data['dateHeld'].toDate(),
+                      );
+                    },
+                  );
+                },
+              ),
+            )),
         Container(
           width: 1,
           height: double.infinity,
@@ -104,9 +154,19 @@ class _HomeScreen extends State<HomeScreen> {
     );
   }
 
+  String title = "Wait";
+
+  void setTitle(String text) {
+    setState(() {
+      title = text;
+    });
+  }
+
   Widget TopWidgets() {
-    return item();
-    // return RoundedImage(imagePath: 'assets/campus.jpg', title: 'example');
+    return DynamicTextWidget(
+      dateTime: DateTime.now(),
+      title: title,
+    );
   }
 
   Widget BottomWidgets() {

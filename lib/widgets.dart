@@ -29,21 +29,30 @@ class RoundImage extends StatelessWidget {
   final String name;
   final String info;
   final String imageUrl;
+  final DateTime heldDate;
 
-  RoundImage({required this.name, required this.info, required this.imageUrl});
+  RoundImage(
+      {required this.name,
+      required this.info,
+      required this.imageUrl,
+      required this.heldDate});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        children: <Widget>[
-          // Text(name),
-          // Text(info),
-          Expanded(
-            flex: 2,
-            child: Container(color: Colors.blueGrey),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+        //tova e gornata chast
+        Expanded(
+          flex: 2,
+          child: TitleAndDateTimeWidget(
+            title: name,
+            dateTime: heldDate,
           ),
-          ConstrainedBox(
+        ),
+        //tuka e snimkata na eveta
+        Center(
+          child: ConstrainedBox(
             constraints: BoxConstraints(
                 minWidth: 200,
                 minHeight: 150,
@@ -54,23 +63,60 @@ class RoundImage extends StatelessWidget {
               child: Image.network(imageUrl),
             ),
           ),
+        ),
+        //donlata chast ot posta
+        Expanded(
+          flex: 3,
+          child: Container(color: Colors.transparent),
+        ),
+      ],
+    );
+  }
+}
 
-          Expanded(
-            flex: 1,
-            child: Container(color: Colors.blueGrey),
+class TitleAndDateTimeWidget extends StatelessWidget {
+  final String title;
+  final DateTime dateTime;
+
+  TitleAndDateTimeWidget({
+    required this.title,
+    required this.dateTime,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(left: 16, top: 24),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            capitlize(title),
+            style: TextStyle(
+              fontSize: 36,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          // AspectRatio(
-          //   aspectRatio: 4 / 3,
-          //   child: Image.network(imageUrl),
-          // )
-          // Container(
-          //   child: FittedBox(
-          //     fit: BoxFit.cover,
-          //     child: Image.network(imageUrl),
-          //   ),
-          // ),
+          SizedBox(height: 5),
+          Text(
+            " ${dateTime.hour}:${dateTime.minute}  ${dateTime.day}/${dateTime.month}/${dateTime.year}",
+            style: TextStyle(
+              fontSize: 18,
+            ),
+          ),
         ],
       ),
     );
+  }
+
+  String capitlize(String title) {
+    List<String> words = title.split(" ");
+
+    for (var i = 0; i < words.length; i++) {
+      words[i] =
+          words[i][0].toUpperCase() + words[i].substring(1).toLowerCase();
+    }
+
+    return words.join(" ");
   }
 }
